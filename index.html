@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Singapore HDB Resale Dynamics & Affordability Intelligence</title>
+    <title>Hi NUS Antigravity Hackathon! I am kana1315</title>
     <!-- Chart.js CDN -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         :root {
-            --bg-primary: #0f172a;
+            --bg-primary: #0b1120;
             --bg-secondary: #1e293b;
             --bg-card: #1e293b;
             --text-primary: #f8fafc;
@@ -34,76 +34,118 @@
             background-color: var(--bg-primary);
             color: var(--text-primary);
             line-height: 1.6;
-            padding: 2rem 1.5rem;
+            padding: 2.5rem 1.5rem;
         }
 
         .container {
-            max-width: 1300px;
+            max-width: 1250px;
             margin: 0 auto;
         }
 
-        /* Header */
-        header {
-            margin-bottom: 2rem;
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 1.5rem;
+        /* Centered Smoke Test Hero Card */
+        .verification-hero {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 3rem;
         }
 
-        .header-top {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
+        .smoke-test-card {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            border: 1px solid var(--border-color);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.4), 0 8px 10px -6px rgba(0, 0, 0, 0.4);
+            border-radius: 16px;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            max-width: 760px;
+            width: 100%;
+        }
+
+        .status-badge {
+            display: inline-flex;
             align-items: center;
-            gap: 1rem;
+            gap: 0.5rem;
+            background: rgba(52, 211, 153, 0.15);
+            color: var(--accent-emerald);
+            border: 1px solid rgba(52, 211, 153, 0.35);
+            padding: 0.35rem 1rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 700;
+            letter-spacing: 0.025em;
+            margin-bottom: 1.25rem;
+        }
+
+        .hero-headline {
+            font-size: 2.25rem;
+            font-weight: 800;
+            color: #ffffff;
+            letter-spacing: -0.025em;
             margin-bottom: 0.5rem;
         }
 
-        .badge-group {
-            display: flex;
-            gap: 0.5rem;
-            flex-wrap: wrap;
-        }
-
-        .badge {
-            background: rgba(56, 189, 248, 0.15);
-            color: var(--accent-blue);
-            border: 1px solid rgba(56, 189, 248, 0.3);
-            padding: 0.25rem 0.75rem;
-            border-radius: 9999px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
-        }
-
-        .badge-alt {
-            background: rgba(129, 140, 248, 0.15);
-            color: var(--accent-indigo);
-            border-color: rgba(129, 140, 248, 0.3);
-        }
-
-        .header-title {
-            font-size: 2.1rem;
-            font-weight: 800;
-            letter-spacing: -0.025em;
-            color: #ffffff;
-            margin-top: 0.5rem;
-        }
-
-        .header-subtitle {
+        .hero-subtitle {
+            font-size: 1.05rem;
             color: var(--text-secondary);
-            font-size: 1rem;
-            margin-top: 0.25rem;
+            margin-bottom: 1.5rem;
         }
 
-        .author-meta {
-            font-size: 0.9rem;
+        .hero-meta {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            padding: 1rem 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            margin-bottom: 1.5rem;
+            font-size: 0.85rem;
             color: var(--text-muted);
-            margin-top: 0.5rem;
         }
 
-        .author-meta strong {
-            color: var(--accent-emerald);
+        .hero-meta span strong {
+            color: var(--accent-blue);
+        }
+
+        .hero-meta code {
+            background: #0f172a;
+            padding: 0.2rem 0.5rem;
+            border-radius: 6px;
+            color: #e2e8f0;
+            font-size: 0.825rem;
+        }
+
+        .scroll-btn {
+            display: inline-block;
+            background: var(--accent-blue);
+            color: #0b1120;
+            font-weight: 700;
+            padding: 0.65rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: opacity 0.2s ease, transform 0.2s ease;
+        }
+
+        .scroll-btn:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+
+        /* Section Title */
+        .section-header {
+            margin-bottom: 1.5rem;
+        }
+
+        .section-header h2 {
+            font-size: 1.75rem;
+            font-weight: 800;
+            color: #ffffff;
+        }
+
+        .section-header p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
         }
 
         /* KPI Grid */
@@ -144,7 +186,7 @@
         .kpi-rose::before { background: var(--accent-rose); }
 
         .kpi-title {
-            font-size: 0.85rem;
+            font-size: 0.825rem;
             text-transform: uppercase;
             letter-spacing: 0.05em;
             color: var(--text-secondary);
@@ -153,7 +195,7 @@
         }
 
         .kpi-value {
-            font-size: 2rem;
+            font-size: 1.9rem;
             font-weight: 800;
             color: #ffffff;
             letter-spacing: -0.02em;
@@ -165,7 +207,7 @@
             margin-top: 0.35rem;
         }
 
-        /* Charts Section */
+        /* Charts Grid */
         .chart-row {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -173,7 +215,7 @@
             margin-bottom: 2rem;
         }
 
-        @media (max-width: 980px) {
+        @media (max-width: 960px) {
             .chart-row {
                 grid-template-columns: 1fr;
             }
@@ -193,9 +235,6 @@
         }
 
         .chart-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
             margin-bottom: 1.25rem;
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
             padding-bottom: 0.75rem;
@@ -210,6 +249,7 @@
         .chart-subtitle {
             font-size: 0.825rem;
             color: var(--text-secondary);
+            margin-top: 0.2rem;
         }
 
         .chart-container {
@@ -219,7 +259,7 @@
             width: 100%;
         }
 
-        /* Calculator Widget */
+        /* Scenario Calculator */
         .calculator-section {
             background: linear-gradient(145deg, #1e293b, #0f172a);
             border: 1px solid var(--border-color);
@@ -229,7 +269,7 @@
         }
 
         .calc-title {
-            font-size: 1.4rem;
+            font-size: 1.35rem;
             font-weight: 700;
             color: #ffffff;
             margin-bottom: 0.5rem;
@@ -260,7 +300,7 @@
         .input-group select, .input-group input {
             width: 100%;
             padding: 0.65rem 0.85rem;
-            background: #0f172a;
+            background: #0b1120;
             border: 1px solid var(--border-color);
             border-radius: 8px;
             color: #ffffff;
@@ -277,7 +317,7 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             gap: 1rem;
-            background: rgba(15, 23, 42, 0.6);
+            background: rgba(11, 17, 32, 0.75);
             border-radius: 8px;
             padding: 1.25rem;
             border: 1px dashed var(--border-color);
@@ -296,13 +336,13 @@
         }
 
         .res-val {
-            font-size: 1.5rem;
+            font-size: 1.45rem;
             font-weight: 800;
             color: var(--accent-emerald);
             margin-top: 0.25rem;
         }
 
-        /* Insights & Recommendations */
+        /* Findings Grid */
         .insights-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -328,9 +368,6 @@
             font-weight: 700;
             color: #ffffff;
             margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
         }
 
         .insight-list {
@@ -379,203 +416,201 @@
 <body>
 
 <div class="container">
-    <!-- Header -->
-    <header>
-        <div class="header-top">
-            <div class="badge-group">
-                <span class="badge">Track 3: Housing Dynamics</span>
-                <span class="badge badge-alt">NUS MSBA Lab 2026</span>
+    <!-- Centered Hello World Verification Card (Step 2.4 Smoke Test) -->
+    <div class="verification-hero">
+        <div class="smoke-test-card">
+            <div class="status-badge">Status: Initial Environment Verification Passed ✅</div>
+            <h1 class="hero-headline">Hi NUS Antigravity Hackathon! I am kana1315</h1>
+            <p class="hero-subtitle">NUS MSBA Build with Antigravity Hands-on Lab (2026-11-23)</p>
+            <div class="hero-meta">
+                <span>Branch: <code>feat/kana1315-submission</code></span>
+                <span>Track: <strong>Track 3 — Housing Dynamics</strong></span>
+                <span>Dataset: <code>data/hdb_resale_sample.csv</code></span>
             </div>
-            <div class="author-meta">
-                Lead Analyst: <strong>kana1315</strong> | Dataset: <code>data/hdb_resale_sample.csv</code> (5,000 Trans.)
-            </div>
-        </div>
-        <h1 class="header-title">Singapore HDB Resale Dynamics & Affordability Intelligence</h1>
-        <p class="header-subtitle">
-            An empirical investigation into spatial price gradients, mature estate premiums, lease decay kinetics, and vertical storey premiums across 26 Singapore residential towns.
-        </p>
-    </header>
-
-    <!-- KPI Summary Cards -->
-    <div class="kpi-grid">
-        <div class="kpi-card kpi-blue">
-            <div class="kpi-title">Average Resale Price</div>
-            <div class="kpi-value">S$ 439,893</div>
-            <div class="kpi-desc">Median: S$ 410,000 | Std Dev: S$ 145,745</div>
-        </div>
-        <div class="kpi-card kpi-emerald">
-            <div class="kpi-title">Average Price / Sqm</div>
-            <div class="kpi-value">S$ 4,609</div>
-            <div class="kpi-desc">Range: S$ 2,612 (Jurong W) to S$ 10,582 (Central)</div>
-        </div>
-        <div class="kpi-card kpi-amber">
-            <div class="kpi-title">Mature Estate Premium</div>
-            <div class="kpi-value">+29.6%</div>
-            <div class="kpi-desc">S$ 5,256/sqm vs S$ 4,055/sqm (+S$ 1,590/sqm controlled)</div>
-        </div>
-        <div class="kpi-card kpi-rose">
-            <div class="kpi-title">Million-Dollar Club</div>
-            <div class="kpi-value">9 Units (0.18%)</div>
-            <div class="kpi-desc">Top: S$ 1,180,000 (Central Area / Pinnacle@Duxton)</div>
+            <a href="#executive-dashboard" class="scroll-btn">Explore Executive Analytics Dashboard ↓</a>
         </div>
     </div>
 
-    <!-- Chart Row 1: Spatial Price Gradient -->
-    <div class="chart-row">
-        <div class="chart-card full-width">
-            <div class="chart-header">
-                <div>
+    <!-- Executive Dashboard Section -->
+    <div id="executive-dashboard">
+        <div class="section-header">
+            <h2>Singapore Housing Affordability & Resale Dynamics Dashboard</h2>
+            <p>Empirical analytics across 5,000 resale transactions: mature estate premiums, leasehold decay kinetics, and vertical storey premiums.</p>
+        </div>
+
+        <!-- KPI Summary Cards -->
+        <div class="kpi-grid">
+            <div class="kpi-card kpi-blue">
+                <div class="kpi-title">Average Resale Price</div>
+                <div class="kpi-value">S$ 439,893</div>
+                <div class="kpi-desc">Median: S$ 410,000 | Std Dev: S$ 145,745</div>
+            </div>
+            <div class="kpi-card kpi-emerald">
+                <div class="kpi-title">Average Price / Sqm</div>
+                <div class="kpi-value">S$ 4,609</div>
+                <div class="kpi-desc">Range: S$ 2,612 (Jurong W) to S$ 10,582 (Central)</div>
+            </div>
+            <div class="kpi-card kpi-amber">
+                <div class="kpi-title">Mature Estate Premium</div>
+                <div class="kpi-value">+29.6%</div>
+                <div class="kpi-desc">S$ 5,256/sqm vs S$ 4,055/sqm (+S$ 1,590/sqm controlled)</div>
+            </div>
+            <div class="kpi-card kpi-rose">
+                <div class="kpi-title">Million-Dollar Club</div>
+                <div class="kpi-value">9 Units (0.18%)</div>
+                <div class="kpi-desc">Top: S$ 1,180,000 (Central Area / Pinnacle@Duxton)</div>
+            </div>
+        </div>
+
+        <!-- Chart Row 1: Spatial Price Gradient -->
+        <div class="chart-row">
+            <div class="chart-card full-width">
+                <div class="chart-header">
                     <div class="chart-title">Singapore Town Price-per-Sqm Spatial Gradient</div>
-                    <div class="chart-subtitle">All 26 towns ranked by mean resale valuation per square meter (Color: Blue = Mature, Gray = Non-Mature)</div>
+                    <div class="chart-subtitle">All 26 towns ranked by mean resale valuation per square meter (Blue: Mature, Gray: Non-Mature)</div>
+                </div>
+                <div class="chart-container" style="min-height: 380px;">
+                    <canvas id="townGradientChart"></canvas>
                 </div>
             </div>
-            <div class="chart-container" style="min-height: 380px;">
-                <canvas id="townGradientChart"></canvas>
-            </div>
         </div>
-    </div>
 
-    <!-- Chart Row 2: Flat Type Discrepancy & Vertical Storey Premium -->
-    <div class="chart-row">
-        <div class="chart-card">
-            <div class="chart-header">
-                <div>
+        <!-- Chart Row 2: Flat Type Discrepancy & Vertical Storey Premium -->
+        <div class="chart-row">
+            <div class="chart-card">
+                <div class="chart-header">
                     <div class="chart-title">Flat Type Valuation: Mature vs Non-Mature</div>
                     <div class="chart-subtitle">Price per sqm comparison across unit configurations</div>
                 </div>
+                <div class="chart-container">
+                    <canvas id="flatTypeChart"></canvas>
+                </div>
             </div>
-            <div class="chart-container">
-                <canvas id="flatTypeChart"></canvas>
-            </div>
-        </div>
-        <div class="chart-card">
-            <div class="chart-header">
-                <div>
+            <div class="chart-card">
+                <div class="chart-header">
                     <div class="chart-title">Vertical Elevation Premium Gradient</div>
                     <div class="chart-subtitle">Monotonic price escalation from ground floor to sky suites (+145.2%)</div>
                 </div>
-            </div>
-            <div class="chart-container">
-                <canvas id="storeyChart"></canvas>
-            </div>
-        </div>
-    </div>
-
-    <!-- Chart Row 3: Lease Decay & Bala's Curve -->
-    <div class="chart-row">
-        <div class="chart-card full-width">
-            <div class="chart-header">
-                <div>
-                    <div class="chart-title">Lease Decay Kinetics: Remaining Lease Bands vs Market Valuation</div>
-                    <div class="chart-subtitle">Demonstrates the "Location vs Lease Decay Paradox" where older mature flats retain high prices despite aging leases</div>
+                <div class="chart-container">
+                    <canvas id="storeyChart"></canvas>
                 </div>
             </div>
-            <div class="chart-container" style="min-height: 340px;">
-                <canvas id="leaseDecayChart"></canvas>
-            </div>
         </div>
-    </div>
 
-    <!-- Interactive Affordability & Lease Depreciation Scenario Calculator -->
-    <div class="calculator-section">
-        <div class="calc-title">Interactive HDB Valuation & MSR Affordability Scenario Simulator</div>
-        <div class="calc-desc">
-            Simulate property valuation, monthly mortgage repayment under MAS 30% Mortgage Servicing Ratio (MSR), and 10-year projected lease decay risk based on empirical sample parameters.
-        </div>
-        <div class="calc-grid">
-            <div class="input-group">
-                <label for="calcEstate">Estate Classification</label>
-                <select id="calcEstate" onchange="runSimulation()">
-                    <option value="Mature" selected>Mature Estate (+S$1,590/sqm)</option>
-                    <option value="Non-Mature">Non-Mature Estate</option>
-                </select>
-            </div>
-            <div class="input-group">
-                <label for="calcFlatType">Flat Configuration</label>
-                <select id="calcFlatType" onchange="runSimulation()">
-                    <option value="3 ROOM">3-Room Flat (~68 sqm)</option>
-                    <option value="4 ROOM" selected>4-Room Flat (~93 sqm)</option>
-                    <option value="5 ROOM">5-Room Flat (~112 sqm)</option>
-                    <option value="EXECUTIVE">Executive Flat (~144 sqm)</option>
-                </select>
-            </div>
-            <div class="input-group">
-                <label for="calcFloorArea">Floor Area (Sqm)</label>
-                <input type="number" id="calcFloorArea" value="95" min="30" max="200" onchange="runSimulation()">
-            </div>
-            <div class="input-group">
-                <label for="calcLease">Remaining Lease (Years)</label>
-                <input type="number" id="calcLease" value="75" min="40" max="99" onchange="runSimulation()">
+        <!-- Chart Row 3: Lease Decay & Bala's Curve -->
+        <div class="chart-row">
+            <div class="chart-card full-width">
+                <div class="chart-header">
+                    <div class="chart-title">Lease Decay Kinetics: Remaining Lease Bands vs Market Valuation</div>
+                    <div class="chart-subtitle">Demonstrates the Location vs Lease Decay Paradox where older mature flats retain high prices despite aging leases</div>
+                </div>
+                <div class="chart-container" style="min-height: 340px;">
+                    <canvas id="leaseDecayChart"></canvas>
+                </div>
             </div>
         </div>
 
-        <div class="calc-results">
-            <div class="res-box">
-                <div class="res-label">Estimated Valuation</div>
-                <div class="res-val" id="resPrice">S$ 498,500</div>
+        <!-- Interactive Affordability & Lease Depreciation Scenario Calculator -->
+        <div class="calculator-section">
+            <div class="calc-title">Interactive HDB Valuation & MSR Affordability Scenario Simulator</div>
+            <div class="calc-desc">
+                Simulate property valuation, monthly mortgage repayment under MAS 30% Mortgage Servicing Ratio (MSR), and 10-year projected lease decay risk based on empirical sample parameters.
             </div>
-            <div class="res-box">
-                <div class="res-label">Est. Unit Price</div>
-                <div class="res-val" id="resPsqm" style="color: var(--accent-blue);">S$ 5,247 / sqm</div>
+            <div class="calc-grid">
+                <div class="input-group">
+                    <label for="calcEstate">Estate Classification</label>
+                    <select id="calcEstate" onchange="runSimulation()">
+                        <option value="Mature" selected>Mature Estate (+S$1,590/sqm)</option>
+                        <option value="Non-Mature">Non-Mature Estate</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="calcFlatType">Flat Configuration</label>
+                    <select id="calcFlatType" onchange="runSimulation()">
+                        <option value="3 ROOM">3-Room Flat (~68 sqm)</option>
+                        <option value="4 ROOM" selected>4-Room Flat (~93 sqm)</option>
+                        <option value="5 ROOM">5-Room Flat (~112 sqm)</option>
+                        <option value="EXECUTIVE">Executive Flat (~144 sqm)</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="calcFloorArea">Floor Area (Sqm)</label>
+                    <input type="number" id="calcFloorArea" value="95" min="30" max="200" onchange="runSimulation()">
+                </div>
+                <div class="input-group">
+                    <label for="calcLease">Remaining Lease (Years)</label>
+                    <input type="number" id="calcLease" value="75" min="40" max="99" onchange="runSimulation()">
+                </div>
             </div>
-            <div class="res-box">
-                <div class="res-label">Monthly Mortgage (25y @ 2.6%)</div>
-                <div class="res-val" id="resMortgage" style="color: var(--accent-amber);">S$ 1,809 / mo</div>
-            </div>
-            <div class="res-box">
-                <div class="res-label">Min Household Income (30% MSR)</div>
-                <div class="res-val" id="resIncome" style="color: var(--accent-indigo);">S$ 6,030 / mo</div>
-            </div>
-            <div class="res-box">
-                <div class="res-label">10-Yr Projected Lease Decay</div>
-                <div class="res-val" id="resDecay" style="color: var(--accent-rose);">-S$ 38,920</div>
+
+            <div class="calc-results">
+                <div class="res-box">
+                    <div class="res-label">Estimated Valuation</div>
+                    <div class="res-val" id="resPrice">S$ 498,500</div>
+                </div>
+                <div class="res-box">
+                    <div class="res-label">Est. Unit Price</div>
+                    <div class="res-val" id="resPsqm" style="color: var(--accent-blue);">S$ 5,247 / sqm</div>
+                </div>
+                <div class="res-box">
+                    <div class="res-label">Monthly Mortgage (25y @ 2.6%)</div>
+                    <div class="res-val" id="resMortgage" style="color: var(--accent-amber);">S$ 1,809 / mo</div>
+                </div>
+                <div class="res-box">
+                    <div class="res-label">Min Household Income (30% MSR)</div>
+                    <div class="res-val" id="resIncome" style="color: var(--accent-indigo);">S$ 6,030 / mo</div>
+                </div>
+                <div class="res-box">
+                    <div class="res-label">10-Yr Projected Lease Decay</div>
+                    <div class="res-val" id="resDecay" style="color: var(--accent-rose);">-S$ 38,920</div>
+                </div>
             </div>
         </div>
-    </div>
 
-    <!-- Structured Insights & Strategic Recommendations -->
-    <div class="insights-grid">
-        <div class="insight-card">
-            <h3>📊 Key Empirical Findings</h3>
-            <ul class="insight-list">
-                <li>
-                    <strong>The Location vs Lease Decay Paradox:</strong> Buyers in Mature towns pay a <strong>29.6% price premium per square meter</strong> (S$5,256 vs S$4,055) despite holding an asset with <strong>9.0 fewer years of remaining lease</strong> on average (68.9 years vs 77.9 years).
-                </li>
-                <li>
-                    <strong>Statistically Rigorous Valuation Gradient:</strong> Controlled OLS regression reveals that each additional year of remaining lease contributes <strong>+S$40.97 / sqm</strong>, whereas mature estate location imparts a massive <strong>+S$1,590.20 / sqm</strong> standalone premium (\(R=0.534\)).
-                </li>
-                <li>
-                    <strong>The Vertical Storey Gradient:</strong> Units on floors 49–51 trade at an average of <strong>S$10,345 / sqm</strong>, representing a <strong>145.2% premium</strong> over ground-to-3rd floor units (S$4,218 / sqm), driven by iconic projects like Pinnacle@Duxton.
-                </li>
-                <li>
-                    <strong>Million-Dollar Specialization:</strong> Exactly 9 transactions in the sample exceeded S$1,000,000. All were located in central/mature hubs (Central Area, Bishan, Clementi, Kallang) and 88.9% had >92 years remaining lease on upper-tier floors.
-                </li>
-            </ul>
-        </div>
+        <!-- Structured Insights & Strategic Recommendations -->
+        <div class="insights-grid">
+            <div class="insight-card">
+                <h3>📊 Key Empirical Findings</h3>
+                <ul class="insight-list">
+                    <li>
+                        <strong>The Location vs Lease Decay Paradox:</strong> Buyers in Mature towns pay a <strong>29.6% price premium per square meter</strong> (S$5,256 vs S$4,055) despite holding an asset with <strong>9.0 fewer years of remaining lease</strong> on average (68.9 years vs 77.9 years).
+                    </li>
+                    <li>
+                        <strong>Statistically Rigorous Valuation Gradient:</strong> Controlled OLS regression reveals that each additional year of remaining lease contributes <strong>+S$40.97 / sqm</strong>, whereas mature estate location imparts a massive <strong>+S$1,590.20 / sqm</strong> standalone premium.
+                    </li>
+                    <li>
+                        <strong>The Vertical Storey Gradient:</strong> Units on floors 49–51 trade at an average of <strong>S$10,345 / sqm</strong>, representing a <strong>145.2% premium</strong> over ground-to-3rd floor units (S$4,218 / sqm), driven by iconic projects like Pinnacle@Duxton.
+                    </li>
+                    <li>
+                        <strong>Million-Dollar Specialization:</strong> Exactly 9 transactions in the sample exceeded S$1,000,000. All were located in central/mature hubs (Central Area, Bishan, Clementi, Kallang) and 88.9% had >92 years remaining lease on upper-tier floors.
+                    </li>
+                </ul>
+            </div>
 
-        <div class="insight-card">
-            <h3>💡 Strategic Recommendations</h3>
-            <ul class="insight-list">
-                <li>
-                    <strong>For First-Time Buyers (Ages 25–35):</strong> Prioritize Non-Mature estates (e.g., Punggol, Sengkang, Woodlands) with >80 years remaining lease. You avoid the S$150k mature location tax while securing superior lease preservation for long-term equity growth.
-                </li>
-                <li>
-                    <strong>For Upgraders & Aging Asset Owners:</strong> Liquidate mature flats when remaining lease reaches the <strong>65-year threshold</strong>. Below 60 years, commercial banks restrict loan-to-value (LTV) and CPF withdrawal rules tighten, accelerating valuation erosion.
-                </li>
-                <li>
-                    <strong>For Family-Size Space Maximizers:</strong> In Non-Mature towns, 5-Room and Executive units exhibit superior economies of scale (averaging S$3,926–S$4,113/sqm vs S$5,274/sqm for 2-Room), offering the highest square footage per dollar.
-                </li>
-                <li>
-                    <strong>For Housing Policy Analysts:</strong> Expand Voluntary Early Round Redevelopment Scheme (VERS) transparency to prevent speculative mispricing in aging mature estates approaching the 50-year lease mark.
-                </li>
-            </ul>
+            <div class="insight-card">
+                <h3>💡 Strategic Recommendations</h3>
+                <ul class="insight-list">
+                    <li>
+                        <strong>For First-Time Buyers (Ages 25–35):</strong> Prioritize Non-Mature estates (e.g., Punggol, Sengkang, Woodlands) with >80 years remaining lease. You avoid the S$150k mature location tax while securing superior lease preservation for long-term equity growth.
+                    </li>
+                    <li>
+                        <strong>For Upgraders & Aging Asset Owners:</strong> Liquidate mature flats when remaining lease reaches the <strong>65-year threshold</strong>. Below 60 years, commercial banks restrict loan-to-value (LTV) and CPF withdrawal rules tighten, accelerating valuation erosion.
+                    </li>
+                    <li>
+                        <strong>For Family-Size Space Maximizers:</strong> In Non-Mature towns, 5-Room and Executive units exhibit superior economies of scale (averaging S$3,926–S$4,113/sqm vs S$5,274/sqm for 2-Room), offering the highest square footage per dollar.
+                    </li>
+                    <li>
+                        <strong>For Housing Policy Analysts:</strong> Expand Voluntary Early Round Redevelopment Scheme (VERS) transparency to prevent speculative mispricing in aging mature estates approaching the 50-year lease mark.
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
 
     <!-- Footer -->
     <footer>
         <p>NUS Master of Science in Business Analytics (MSBA) | Build with Antigravity Hands-on Lab 2026</p>
-        <p>Live Repository: <a href="https://github.com/nus-msba-antigravity-2026/nus-msba-antigravity-lab-2026" target="_blank">nus-msba-antigravity-2026/nus-msba-antigravity-lab-2026</a> | Branch: <code>feat/kana1315-hdb-resale</code></p>
+        <p>Live Repository: <a href="https://github.com/nus-msba-antigravity-2026/nus-msba-antigravity-lab-2026" target="_blank">nus-msba-antigravity-2026/nus-msba-antigravity-lab-2026</a> | Branch: <code>feat/kana1315-submission</code></p>
     </footer>
 </div>
 
@@ -790,11 +825,9 @@
         const area = parseFloat(document.getElementById('calcFloorArea').value) || 95;
         const lease = parseFloat(document.getElementById('calcLease').value) || 75;
 
-        // Empirical base values from linear model: psqm = 852.57 + 40.97 * lease + 1590.20 * is_mature
         const isMature = estate === 'Mature' ? 1 : 0;
         let basePsqm = 852.57 + (40.97 * lease) + (1590.20 * isMature);
 
-        // Adjust for flat type elasticity
         if (flatType === '3 ROOM') basePsqm *= 0.98;
         if (flatType === '4 ROOM') basePsqm *= 1.02;
         if (flatType === '5 ROOM') basePsqm *= 0.99;
@@ -803,19 +836,13 @@
         const estValuation = Math.round(basePsqm * area);
         const estPsqm = Math.round(basePsqm);
 
-        // Mortgage calculation: 80% LTV, 25 years tenure, 2.6% interest rate (standard HDB loan)
         const loanAmount = estValuation * 0.8;
         const monthlyRate = 0.026 / 12;
         const numPayments = 25 * 12;
         const monthlyMortgage = Math.round((loanAmount * monthlyRate * Math.pow(1 + monthlyRate, numPayments)) / (Math.pow(1 + monthlyRate, numPayments) - 1));
-
-        // MAS Mortgage Servicing Ratio (MSR) capped at 30% of gross monthly household income
         const reqMonthlyIncome = Math.round(monthlyMortgage / 0.30);
-
-        // 10-year projected lease decay risk (40.97 * 10 * area)
         const projectedDecay = Math.round(40.97 * 10 * area);
 
-        // Update DOM
         document.getElementById('resPrice').innerText = 'S$ ' + estValuation.toLocaleString();
         document.getElementById('resPsqm').innerText = 'S$ ' + estPsqm.toLocaleString() + ' / sqm';
         document.getElementById('resMortgage').innerText = 'S$ ' + monthlyMortgage.toLocaleString() + ' / mo';
@@ -823,7 +850,6 @@
         document.getElementById('resDecay').innerText = '-S$ ' + projectedDecay.toLocaleString();
     }
 
-    // Initialize on load
     runSimulation();
 </script>
 
